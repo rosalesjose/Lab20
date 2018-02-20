@@ -35,6 +35,8 @@ namespace Lab20.Controllers
         }
         #endregion
 
+        Regex phone = new Regex(@"^\d{10}$");
+
         public ActionResult GetUserInfo(string FirstName, string LastName, string Phone, string Password)
         {
             if (FirstName == "" || LastName == "")
@@ -42,7 +44,7 @@ namespace Lab20.Controllers
                 TempData["msg"] = "<script>alert('Enter the name correctly!');</script>";
                 return View("UserRegistration");
             }
-            else if (Phone == "")
+            else if (!phone.IsMatch(Phone))
             {
                 TempData["msg"] = "<script>alert('Enter the phone number correctly!');</script>";
                 return View("UserRegistration");
