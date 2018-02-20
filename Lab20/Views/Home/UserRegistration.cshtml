@@ -1,7 +1,10 @@
-﻿
+﻿@Html.Raw(TempData["msg"])
+
+<script src="../../FormValidation.js" language="javascript" type="text/javascript"></script>
+
 <h2>Please fill the form to register</h2><br /><br />
 
-<form id="myForm" action="/Home/GetUserInfo" method="post">
+<form onsubmit="return validateForm()" action="/Home/GetUserInfo" method="post">
     <h5>First Name </h5>
     <input type="text" name="FirstName" /><br />
     <h5>Last Name</h5>
